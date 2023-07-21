@@ -49,7 +49,7 @@ class FirstFragment : Fragment() {
             var numeroingresado = binding.textInputLayout.editText?.text.toString().toIntOrNull()
             if (numeroingresado != null) {
                 binding.textView.setText("El valor ingresadp es $numeroingresado")
-                prefs.guardardatos(llavenumero, numeroingresado.toString())
+                prefs?.guardardatos(llavenumero, numeroingresado.toString())
                 binding.textInputLayout.editText?.setError(null)
 
             } else {
@@ -61,7 +61,7 @@ class FirstFragment : Fragment() {
             if (textoingresado != null) {
                 binding.textView2.setText("El valor ingresado es $textoingresado")
                 binding.textInputLayout2.editText?.setError(null)
-                prefs.guardardatos(llavetexto, textoingresado)
+                prefs?.guardardatos(llavetexto, textoingresado)
             } else {
                 binding.textInputLayout2.editText?.setError("Ingrese un valor")
                 binding.textView2.setText("")
@@ -72,14 +72,14 @@ class FirstFragment : Fragment() {
             if (decimalingresado != null) {
                 binding.textView3.setText("El número ingresado es $decimalingresado")
                 binding.textInputLayout3.editText?.setError(null)
-                prefs.guardardatos(llavedecimal, decimalingresado.toString())
+                prefs?.guardardatos(llavedecimal, decimalingresado.toString())
             } else {
                 binding.textInputLayout3.editText?.setError("Ingrese un valor valido")
                 binding.textView3.setText("")
             }
 
             val switchValue = binding.switch1.isChecked.toString()
-            prefs.guardardatos(llavebooleana,switchValue)
+            prefs?.guardardatos(llavebooleana,switchValue)
 
             binding.buttonFirst.setOnClickListener {
                 findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)

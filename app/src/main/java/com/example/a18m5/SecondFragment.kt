@@ -33,14 +33,29 @@ class SecondFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val prefs= Prefscomp.preferencias
+        val prefs = Prefscomp.preferencias
+        val llavenumero = "llavenumero"
+        val llavetexto = "llavetexto"
+        val llavedecimal = "llavedecimal"
+        val llavebooleana = "llavebooleana"
 
+        val textoNumero = prefs?.obtenerdatos(llavenumero)
+        binding.textViewnumero.text = textoNumero
+
+        binding.textViewtexto.text = prefs?.obtenerdatos(llavetexto)
+        binding.textViewdecimal.text = prefs?.obtenerdatos(llavedecimal)
+        binding.textViewBooleano.text = prefs?.obtenerdatos(llavebooleana)
+
+        /*val prefs= Prefscomp.preferencias
+        var texto=prefs?.obtenerdatos(llave = "llavenumero")
+        binding.textViewnumero.setText(texto)
+        //acá está la madre del cordero
         val llavetexto="llavetexto"
-        binding.textViewtexto.text=prefs.obtenerdatos(llavetexto)
-        binding.textViewnumero.text=prefs.obtenerdatos("llavenumero")
-        binding.textViewdecimal.text=prefs.obtenerdatos("llavedecimal")
-        binding.textViewBooleano.text=prefs.obtenerdatos("llavebooleana")
-
+        binding.textViewtexto.text=prefs?.obtenerdatos(llavetexto)
+        //binding.textViewnumero.text=prefs?.obtenerdatos("llavenumero")
+        binding.textViewdecimal.text=prefs?.obtenerdatos("llavedecimal")
+        binding.textViewBooleano.text=prefs?.obtenerdatos("llavebooleana")
+*/
         binding.buttonSecond.setOnClickListener {
             findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
         }
